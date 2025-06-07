@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PMS</title>
+</head>
+<body>
+    <div class="cruds">
+        <div class="head">
+            <h1>CRUDS</h1>
+            <h3>PRODUCT MANAGMENT SYSTEM</h3>
+        </div>
+
+        <div class="inputs">
+            <input class="titel" type="text" placeholder="Titel">
+            <div class="pric_group">
+                
+                <input class="price" type="number" placeholder="Price">
+                <input class="tax" type="number" placeholder="Taxes">
+                <input class="ads" type="number" placeholder="Ads">
+                <input class="disco" type="number" placeholder="Discount">
+                <div><h4 class="total" >Total:</h4><p class="totall">0</p></div>
+            </div>
+            <input class="count" type="number" placeholder="Count">
+            <input class="cat" type="text" placeholder="Category">
+            <button class="creat">CREATE</button>
+        </div>
+
+        <div class="output">
+            <input type="text" placeholder="Search">
+            <div class="searchs"> <button>Search by Titel</button> <button>Search by Category</button></div>
+            <button>Delete All</button>
+            <div>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titel</th>
+                        <th>Price</th>
+                        <th>Taxes</th>
+                        <th>Ads</th>
+                        <th>Discount</th>
+                        <th>Total</th>
+                        <th>Category</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tbody class="tbody">
+                        <tr>
+                            <td class="id">1</td>
+                            <td class="titel">Sample Product</td>
+                            <td class="price">100</td>
+                            <td class="tax">10</td>
+                            <td class="ads">5</td>
+                            <td class="total">5</td>
+                            <td class="disco">2</td>
+                            <td class="cat">Sample Category</td>
+                            <td><button class="update">Update</button></td>
+                            <td><button class="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td class="id">1</td>
+                            <td class="titel">Sample Product</td>
+                            <td class="price">100</td>
+                            <td class="tax">10</td>
+                            <td class="ads">5</td>
+                            <td class="total">5</td>
+                            <td class="disco">2</td>
+                            <td class="cat">Sample Category</td>
+                            <td><button class="update">Update</button></td>
+                            <td><button class="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td class="id">1</td>
+                            <td class="titel">Sample Product</td>
+                            <td class="price">100</td>
+                            <td class="tax">10</td>
+                            <td class="ads">5</td>
+                            <td class="total">5</td>
+                            <td class="disco">2</td>
+                            <td class="cat">Sample Category</td>
+                            <td><button class="update">Update</button></td>
+                            <td><button class="delete">Delete</button></td>
+                        </tr>
+                        <tr>
+                            <td class="id">1</td>
+                            <td class="titel">Sample Product</td>
+                            <td class="price">100</td>
+                            <td class="tax">10</td>
+                            <td class="ads">5</td>
+                            <td class="total">5</td>
+                            <td class="disco">2</td>
+                            <td class="cat">Sample Category</td>
+                            <td><button class="update">Update</button></td>
+                            <td><button class="delete">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js" ></script>
+</body>
+</html>

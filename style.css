@@ -1,0 +1,138 @@
+body{
+    background-color: #1e1e1e;
+    font-family: system-ui;
+    margin: 0;
+    color: rgb(221, 220, 220);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.cruds{
+    width: 80%;
+    background-color: #4b4a4a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+.head {
+    text-align: center;
+    font-size: 25px;
+}
+
+.inputs{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.pric_group {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+.pric_group > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;    
+    background-color: #2c2c2c;
+    border-radius: 5px;    
+    padding: 8px 16px;     
+}
+.totall {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #06e20d;        
+    margin: 0;
+}
+.total {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+.output {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+.searchs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2c2c2c;
+    color: #ddd;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0353ff;
+    color: white;
+    cursor: pointer;
+    font-size: large;
+    transition: 0.5s;
+}
+button:hover {
+    background-color: #0243c4;
+    letter-spacing: 1.5px;
+}
+
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input:hover{
+    background-color: #3c3c3c;
+}
+input:focus {
+    outline: none;
+    background-color: #1d1d1d;
+    transform: scale(1.05);
+    box-shadow: #005bd1 0px 0px 10px;
+}
+
+@media (max-width: 600px) {
+    .cruds {
+        width: 100%;
+        padding: 8px;
+    }
+    .inputs {
+        grid-template-rows: none;
+        gap: 6px;
+    }
+    .pric_group {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    button, input {
+        font-size: 1em;
+        padding: 8px;
+    }
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+table th {
+    text-transform: uppercase;
+}
+th , td {
+    padding: 6px;
+
+}
