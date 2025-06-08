@@ -51,6 +51,7 @@ buttn.onclick = function createe() {
         }
         arrProduct.push(prod);
         clearData();
+        showData();
 
         localStorage.setItem("product",JSON.stringify(arrProduct))
     }
@@ -76,4 +77,38 @@ function clearData() {
     tax.value = '' ;
     discount.value = '';
     total.parentElement.style.backgroundColor = 'red' ;
+}
+
+// raed data
+let tbody = document.getElementsByClassName('tbody')[0];
+
+onload = function hello() {
+    showData();
+} 
+
+function showData() {
+    let table = '' ;
+    for (let i = 0; i < arrProduct.length; i++) {
+        table += `<tr>
+                        <td class="id">${arrProduct[i].id}</td>
+                        <td class="titel">${arrProduct[i].titel}</td>
+                        <td class="price">${arrProduct[i].price}</td>
+                        <td class="tax">${arrProduct[i].tax}</td>
+                        <td class="ads">${arrProduct[i].ads}</td>
+                        <td class="total">${arrProduct[i].total}</td>
+                        <td class="disco">${arrProduct[i].discount}</td>
+                        <td class="cat">${arrProduct[i].cat}</td>
+                        <td><button class="update">Update</button></td>
+                        <td><button class="delete" onclick='deleteProduct(${i})'>Delete</button></td>
+                </tr>`;
+        tbody.innerHTML = table ;
+    }
+}
+
+// delete item
+
+function deleteProduct(i) {
+    arrProduct.splice(i,1);
+    localStorage.product = JSON.stringify(arrProduct) ;
+    showData();
 }
