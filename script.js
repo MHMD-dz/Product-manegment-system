@@ -7,7 +7,8 @@ let cat = document.getElementsByClassName('cat')[0];
 let count = document.getElementsByClassName('count')[0]
 let titel = document.getElementsByClassName('titel')[0];
 let buttn = document.getElementsByClassName('creat')[0];
-
+let mode = 'create' ;
+let temp ;
 
 
 // calcul the total
@@ -47,20 +48,28 @@ buttn.onclick = function createe() {
         total: result,
         cat: cat.value,
         count : count.value
-        }
+        };
         // multiplt create
-        if (count.value > 1) {
-        for (let lol = 0; lol < Number(count.value); lol++) {
+        if (mode === 'create') {
+            if (count.value > 1) {
+                for (let lol = 0; lol < Number(count.value); lol++) {
+                    arrProduct.push(prod);
+                }
+            }else{
             arrProduct.push(prod);
         }
         }else{
-            arrProduct.push(prod);
+            arrProduct[temp] = prod ;
+            mode = 'create'
+            count.style.display = 'block';
+            buttn.textContent = 'CREATE';
         }
         
         clearData();
         showData();
 
-        localStorage.setItem("product",JSON.stringify(arrProduct))
+        localStorage.setItem("product",JSON.stringify(arrProduct));
+        
     }
 
     
@@ -104,7 +113,7 @@ function showData() {
                         <td class="disco">${arrProduct[i].discount}</td>
                         <td class="total">${arrProduct[i].total}</td>
                         <td class="cat">${arrProduct[i].cat}</td>
-                        <td><button class="update">Update</button></td>
+                        <td><button class="update" onclick='updateProduct(${i})'>Update</button></td>
                         <td><button class="delete" onclick='deleteProduct(${i})'>Delete</button></td>
                 </tr>`;
         
@@ -131,8 +140,25 @@ function deleteProduct(i) {
 // delete all 
 
 function deleteAll() {
-    localStorage.removeItem
-    arrProduct.splice(0);("product");
+    localStorage.removeItem("product");
+    arrProduct.splice(0);
     showData();
 }
 
+// Update product 
+
+function updateProduct(i) {
+    titel.value = arrProduct[i].titel ;
+    price.value = arrProduct[i].price ;
+    count.value = arrProduct[i].count ;
+    cat.value = arrProduct[i].cat ;
+    total.textContent = arrProduct[i].total ;
+    ads.value = arrProduct[i].ads ;
+    tax.value = arrProduct[i].tax ;
+    discount.value = arrProduct[i].discount ;
+    count.style.display = 'none';
+    buttn.textContent = 'UPDATE';
+    mode = 'update';
+    calcul();
+    temp = i ;
+}
