@@ -29,8 +29,10 @@
         </div>
 
         <div class="output">
-            <input type="text" placeholder="Search">
-            <div class="searchs"> <button>Search by Titel</button> <button>Search by Category</button></div>
+            <input onkeyup="searchData(this.value)" class="search" type="text" placeholder="Search by Title">
+            <div class="searchs">   <button onclick="searchMode(1)" class="searchTI" >Search by Title</button> 
+                                    <button onclick="searchMode(2)" class="searchCA" >Search by Category</button>
+            </div>
             <button class="deleteAll" onclick="deleteAll()" >Delete All</button>
             <div>
                 <table>
