@@ -40,13 +40,13 @@ let arrProduct = [] ;
 buttn.onclick = function createe() {
     if( titel.value != '' && count.value >= 1  && cat.value !='' && result > 0){
         let prod = {
-        titel: titel.value,
+        titel: titel.value.toLowerCase() ,
         price: price.value,
         tax : tax.value,
         ads : ads.value,
         discount : discount.value,
         total: result,
-        cat: cat.value,
+        cat: cat.value.toLowerCase() ,
         count : count.value
         };
         // multiplt create
@@ -161,4 +161,74 @@ function updateProduct(i) {
     mode = 'update';
     calcul();
     temp = i ;
+    scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// search 
+let searchMod = 'titel';
+let search = document.getElementsByClassName('search')[0];
+
+function searchMode(id) {
+    if (id == 1) {
+        searchMod = 'titel';
+        search.placeholder = "Search by Title";
+        search.value = '' ;
+        showData();
+    }else{
+        searchMod = 'cat';
+        search.placeholder = "Search by Category";
+        search.value = '' ;
+        showData();
+    }
+
+    search.focus();
+}
+
+
+function searchData( valuee ) {
+    valuee = valuee.toLowerCase();
+    if (searchMod == 'titel') {
+        table = '' ;
+        for (let i = 0; i < arrProduct.length; i++) {
+            if (arrProduct[i].titel.includes(valuee)) {
+                table += `<tr>
+                        <td class="id">${i+1}</td>
+                        <td class="titel">${arrProduct[i].titel}</td>
+                        <td class="price">${arrProduct[i].price}</td>
+                        <td class="tax">${arrProduct[i].tax}</td>
+                        <td class="ads">${arrProduct[i].ads}</td>
+                        <td class="disco">${arrProduct[i].discount}</td>
+                        <td class="total">${arrProduct[i].total}</td>
+                        <td class="cat">${arrProduct[i].cat}</td>
+                        <td><button class="update" onclick='updateProduct(${i})'>Update</button></td>
+                        <td><button class="delete" onclick='deleteProduct(${i})'>Delete</button></td>
+                </tr>`;
+                
+            }
+        }
+    }else{
+        table = '' ;
+        for (let i = 0; i < arrProduct.length; i++) {
+            if (arrProduct[i].cat.includes(valuee)) {
+                table += `<tr>
+                        <td class="id">${i+1}</td>
+                        <td class="titel">${arrProduct[i].titel}</td>
+                        <td class="price">${arrProduct[i].price}</td>
+                        <td class="tax">${arrProduct[i].tax}</td>
+                        <td class="ads">${arrProduct[i].ads}</td>
+                        <td class="disco">${arrProduct[i].discount}</td>
+                        <td class="total">${arrProduct[i].total}</td>
+                        <td class="cat">${arrProduct[i].cat}</td>
+                        <td><button class="update" onclick='updateProduct(${i})'>Update</button></td>
+                        <td><button class="delete" onclick='deleteProduct(${i})'>Delete</button></td>
+                </tr>`;
+                
+            }
+        }
+    }
+    tbody.innerHTML = table ;
+
 }
