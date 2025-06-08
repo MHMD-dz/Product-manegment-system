@@ -39,7 +39,6 @@ let arrProduct = [] ;
 buttn.onclick = function createe() {
     if( titel.value != '' && count.value >= 1  && cat.value !='' && result > 0){
         let prod = {
-        id : arrProduct.length + 1  ,
         titel: titel.value,
         price: price.value,
         tax : tax.value,
@@ -49,7 +48,15 @@ buttn.onclick = function createe() {
         cat: cat.value,
         count : count.value
         }
-        arrProduct.push(prod);
+        // multiplt create
+        if (count.value > 1) {
+        for (let lol = 0; lol < Number(count.value); lol++) {
+            arrProduct.push(prod);
+        }
+        }else{
+            arrProduct.push(prod);
+        }
+        
         clearData();
         showData();
 
@@ -82,14 +89,14 @@ function clearData() {
 // raed data
 let tbody = document.getElementsByClassName('tbody')[0];
 
-onload = showData();
+window.onload = showData;
 
 
 function showData() {
     let table = '' ;
     for (let i = 0; i < arrProduct.length; i++) {
         table += `<tr>
-                        <td class="id">${arrProduct[i].id}</td>
+                        <td class="id">${i+1}</td>
                         <td class="titel">${arrProduct[i].titel}</td>
                         <td class="price">${arrProduct[i].price}</td>
                         <td class="tax">${arrProduct[i].tax}</td>
@@ -106,6 +113,7 @@ function showData() {
     let deleteAllBtn = document.getElementsByClassName('deleteAll')[0];
     if (arrProduct.length > 0) {
         deleteAllBtn.style.display = "block";
+        deleteAllBtn.textContent = `Delete All (${arrProduct.length})`;
     } else {
         deleteAllBtn.style.display = "none";
     }
@@ -123,8 +131,8 @@ function deleteProduct(i) {
 // delete all 
 
 function deleteAll() {
-    arrProduct.splice(0);
-    localStorage.removeItem("product");
+    localStorage.removeItem
+    arrProduct.splice(0);("product");
     showData();
 }
 
