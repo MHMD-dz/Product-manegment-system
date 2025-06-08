@@ -95,8 +95,8 @@ function showData() {
                         <td class="price">${arrProduct[i].price}</td>
                         <td class="tax">${arrProduct[i].tax}</td>
                         <td class="ads">${arrProduct[i].ads}</td>
-                        <td class="total">${arrProduct[i].total}</td>
                         <td class="disco">${arrProduct[i].discount}</td>
+                        <td class="total">${arrProduct[i].total}</td>
                         <td class="cat">${arrProduct[i].cat}</td>
                         <td><button class="update">Update</button></td>
                         <td><button class="delete" onclick='deleteProduct(${i})'>Delete</button></td>
