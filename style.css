@@ -57,7 +57,7 @@ body{
 
 .output {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 10px;
 }
 .searchs {
@@ -135,4 +135,8 @@ table th {
 th , td {
     padding: 6px;
 
+}
+
+.deleteAll{
+    display: none;
 }

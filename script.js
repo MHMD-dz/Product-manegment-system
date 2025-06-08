@@ -82,9 +82,8 @@ function clearData() {
 // raed data
 let tbody = document.getElementsByClassName('tbody')[0];
 
-onload = function hello() {
-    showData();
-} 
+onload = showData();
+
 
 function showData() {
     let table = '' ;
@@ -101,7 +100,14 @@ function showData() {
                         <td><button class="update">Update</button></td>
                         <td><button class="delete" onclick='deleteProduct(${i})'>Delete</button></td>
                 </tr>`;
-        tbody.innerHTML = table ;
+        
+    }tbody.innerHTML = table ;
+    // Show/hide deleteAll button
+    let deleteAllBtn = document.getElementsByClassName('deleteAll')[0];
+    if (arrProduct.length > 0) {
+        deleteAllBtn.style.display = "block";
+    } else {
+        deleteAllBtn.style.display = "none";
     }
 }
 
@@ -112,3 +118,13 @@ function deleteProduct(i) {
     localStorage.product = JSON.stringify(arrProduct) ;
     showData();
 }
+
+
+// delete all 
+
+function deleteAll() {
+    arrProduct.splice(0);
+    localStorage.removeItem("product");
+    showData();
+}
+
